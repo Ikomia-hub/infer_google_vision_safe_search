@@ -71,6 +71,9 @@ algo.set_parameters({
 # Run on your image
 wf.run_on(url='https://resize.cdn.otakumode.com/ex/911.1200/shop/product/335b132778024f019576713164b02cc2.jpg')
 
+# Save output .json
+safe_search_output = algo.get_output(1)
+safe_search_output.save('safe_search_detection.json')
 ```
 
 ## :sunny: Use with Ikomia Studio
