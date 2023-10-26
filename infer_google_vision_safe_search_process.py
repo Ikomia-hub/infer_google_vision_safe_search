@@ -113,7 +113,13 @@ class InferGoogleVisionSafeSearch(dataprocess.C2dImageTask):
         df = pd.DataFrame(data)
         print(df.to_string(index=False))
 
-        output_dict.data = ({'safe_search_annotation': f'{response.safe_search_annotation}'})
+        output_dict.data = {
+                            "adult:": self.likelihood_name[safe.adult],
+                            "medical:": self.likelihood_name[safe.medical],
+                            "spoofed:": self.likelihood_name[safe.spoof],
+                            "violence:": self.likelihood_name[safe.violence],
+                            "racy:": self.likelihood_name[safe.racy]
+                        }
 
         self.emit_step_progress()
 
@@ -142,7 +148,7 @@ class InferGoogleVisionSafeSearchFactory(dataprocess.CTaskFactory):
         self.info.year = 2023
         self.info.license = "Apache License 2.0"
         # URL of documentation
-        self.info.documentation_link = "https://cloud.google.com/vision/docs/object-localizer"
+        self.info.documentation_link = "https://cloud.google.com/vision/docs/detecting-safe-search"
         # Code source repository
         self.info.repository = "https://github.com/googleapis/python-vision"
         # Keywords used for search
