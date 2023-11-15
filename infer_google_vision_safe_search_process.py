@@ -150,7 +150,8 @@ class InferGoogleVisionSafeSearchFactory(dataprocess.CTaskFactory):
         # URL of documentation
         self.info.documentation_link = "https://cloud.google.com/vision/docs/detecting-safe-search"
         # Code source repository
-        self.info.repository = "https://github.com/googleapis/python-vision"
+        self.info.repository = "https://github.com/Ikomia-hub/infer_google_vision_safe_search"
+        self.info.original_repository = "https://github.com/googleapis/python-vision"
         # Keywords used for search
         self.info.keywords = "Safe Search,Google,Cloud,Vision AI"
         self.info.algo_type = core.AlgoType.INFER
